@@ -27,6 +27,10 @@ function App() {
       setMessageReceived(data.message);
     });
   }, [socket]);
+  const getAlluser = () => {
+
+    socket.emit("getUsersCount", room);
+  }
   return (
     <div className="App">
       <input
@@ -45,6 +49,8 @@ function App() {
       <button onClick={sendMessage}> Send Message</button>
       <h1> Message:</h1>
       {messageReceived}
+
+      <button onClick={getAlluser}>Get all user in room</button>
     </div>
   );
 }
